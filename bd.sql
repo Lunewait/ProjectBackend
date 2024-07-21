@@ -44,3 +44,11 @@ CREATE TABLE productos_ventas(
     idProducto BIGINT NOT NULL,
     idVenta BIGINT NOT NULL
 );
+CREATE TABLE Proveedores (
+    idproveedor VARCHAR(3) NOT NULL PRIMARY KEY,
+    nomproveedor VARCHAR(128) DEFAULT NULL,
+    rucproveedor VARCHAR(11) DEFAULT NULL,
+    dirproveedor VARCHAR(128) DEFAULT NULL,
+    telproveedor VARCHAR(9) DEFAULT NULL,
+    emailproveedor VARCHAR(64) DEFAULT NULL
+);

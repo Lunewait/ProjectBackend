@@ -422,6 +422,35 @@ function editar($sentencia, $parametros ){
     $respuesta = $bd->prepare($sentencia);
     return $respuesta->execute($parametros);
 }
+// Funciones de Proveedores
+function eliminarProveedor($idproveedor){
+    $sentencia = "DELETE FROM Proveedores WHERE idproveedor = ?";
+    return eliminar($sentencia, [$idproveedor]);
+}
+
+function editarProveedor($idproveedor, $nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor){
+    $sentencia = "UPDATE Proveedores SET nomproveedor = ?, rucproveedor = ?, dirproveedor = ?, telproveedor = ?, emailproveedor = ? WHERE idproveedor = ?";
+    $parametros = [$nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor, $idproveedor];
+    return editar($sentencia, $parametros);
+}
+
+function obtenerProveedorPorId($idproveedor){
+    $sentencia = "SELECT * FROM Proveedores WHERE idproveedor = ?";
+    $proveedor = select($sentencia, [$idproveedor]);
+    if($proveedor) return $proveedor[0];
+}
+
+function obtenerProveedores(){
+    $sentencia = "SELECT * FROM Proveedores";
+    return select($sentencia);
+}
+
+function registrarProveedor($idproveedor, $nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor){
+    $sentencia = "INSERT INTO Proveedores (idproveedor, nomproveedor, rucproveedor, dirproveedor, telproveedor, emailproveedor) VALUES (?,?,?,?,?,?)";
+    $parametros = [$idproveedor, $nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor];
+    return insertar($sentencia, $parametros);
+}
+
 
 function conectarBaseDatos() {
 	$host = "localhost";

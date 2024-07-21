@@ -33,6 +33,12 @@
             </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link active" href="proveedores.php">
+            <i class="fa fa-truck"></i>
+            Proveedores
+          </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link active" href="vender.php">
             <i class="fa fa-cash-register"></i>   
             Vender
