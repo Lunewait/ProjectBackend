@@ -1,5 +1,5 @@
 <?php
-$id = $_GET['idproveedor'];
+$id = $_GET['id'];
 if (!$id) {
     echo 'No se ha seleccionado el proveedor';
     exit;
@@ -13,4 +13,5 @@ if(!$resultado){
 }
 
 header("Location: proveedores.php");
+
 ?>

@@ -39,13 +39,13 @@ $proveedores = obtenerProveedores();
                     <td><?php echo $proveedor->telproveedor; ?></td>
                     <td><?php echo $proveedor->emailproveedor; ?></td>
                     <td>
-                        <a class="btn btn-info" href="editar_proveedor.php?id=<?php echo $proveedor->idproveedor;?>">
+                        <a class="btn btn-info" href="editar_proveedor.php?id=<?php echo $proveedor->id;?>">
                             <i class="fa fa-edit"></i>
                             Editar
                         </a>
                     </td>
                     <td>
-                        <a class="btn btn-danger" href="eliminar_proveedor.php?id=<?php echo $proveedor->idproveedor;?>">
+                        <a class="btn btn-danger" href="eliminar_proveedor.php?id=<?php echo $proveedor->id;?>">
                             <i class="fa fa-trash"></i>
                             Eliminar
                         </a>

@@ -1,6 +1,4 @@
 <?php
-
-define("PASSWORD_PREDETERMINADA", "PacoHunterDev");
 define("HOY", date("Y-m-d"));
 
 function iniciarSesion($usuario, $password){
@@ -423,20 +421,21 @@ function editar($sentencia, $parametros ){
     return $respuesta->execute($parametros);
 }
 // Funciones de Proveedores
-function eliminarProveedor($idproveedor){
+function eliminarProveedor($id){
     $sentencia = "DELETE FROM Proveedores WHERE idproveedor = ?";
-    return eliminar($sentencia, [$idproveedor]);
+    return eliminar($sentencia, [$id]);
 }
 
-function editarProveedor($idproveedor, $nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor){
+
+function editarProveedor($id, $nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor){
     $sentencia = "UPDATE Proveedores SET nomproveedor = ?, rucproveedor = ?, dirproveedor = ?, telproveedor = ?, emailproveedor = ? WHERE idproveedor = ?";
     $parametros = [$nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor, $idproveedor];
     return editar($sentencia, $parametros);
 }
 
-function obtenerProveedorPorId($idproveedor){
-    $sentencia = "SELECT * FROM Proveedores WHERE idproveedor = ?";
-    $proveedor = select($sentencia, [$idproveedor]);
+function obtenerProveedorPorId($id){
+    $sentencia = "SELECT * FROM Proveedores WHERE id = ?";
+    $proveedor = select($sentencia, [$id]);
     if($proveedor) return $proveedor[0];
 }
 
@@ -445,11 +444,12 @@ function obtenerProveedores(){
     return select($sentencia);
 }
 
-function registrarProveedor($idproveedor, $nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor){
-    $sentencia = "INSERT INTO Proveedores (idproveedor, nomproveedor, rucproveedor, dirproveedor, telproveedor, emailproveedor) VALUES (?,?,?,?,?,?)";
-    $parametros = [$idproveedor, $nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor];
+function registrarProveedor( $nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor){
+    $sentencia = "INSERT INTO Proveedores ( nomproveedor, rucproveedor, dirproveedor, telproveedor, emailproveedor) VALUES (?,?,?,?,?)";
+    $parametros = [ $nomproveedor, $rucproveedor, $dirproveedor, $telproveedor, $emailproveedor];
     return insertar($sentencia, $parametros);
 }
+
 
 
 function conectarBaseDatos() {
